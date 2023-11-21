@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'splash_screen.dart';
-import 'login_page.dart';
 import 'register_page.dart';
+import 'login_page.dart';
 import 'dashboard_page.dart';
 
 void main() {
@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(),
-      // Add your routes here
+      initialRoute: '/',
       routes: {
-        '/login': (context) => LoginPage(),
+        '/': (context) => SplashScreen(),
         '/register': (context) => RegisterPage(),
-        '/dashboard': (context) => DashboardPage(),
+        '/login': (context) => LoginPage(),
+        '/dashboard': (context) => Dashboard(),
       },
     );
   }
