@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'PSDetailPage.dart';
 
 class Dashboard extends StatelessWidget {
   final List<String> playstationList = [
@@ -9,6 +10,14 @@ class Dashboard extends StatelessWidget {
     'PlayStation 4',
     'PlayStation 5',
     // Tambahkan lebih banyak item sesuai kebutuhan
+  ];
+
+  // Satu list utama yang berisi tiga list data untuk masing-masing jenis PlayStation
+  final List<List<String>> allDataList = [
+    ['Data 1 for PSP', 'Data 2 for PSP', 'Data 3 for PSP', /* Tambahkan lebih banyak data sesuai kebutuhan */],
+    ['Data 1 for PS1', 'Data 2 for PS1', 'Data 3 for PS1', /* Tambahkan lebih banyak data sesuai kebutuhan */],
+    ['Data 1 for PS2', 'Data 2 for PS2', 'Data 3 for PS2', /* Tambahkan lebih banyak data sesuai kebutuhan */],
+    // Tambahkan lebih banyak list data sesuai kebutuhan
   ];
 
   @override
@@ -31,7 +40,6 @@ class Dashboard extends StatelessWidget {
   }
 
   Widget buildPlayStationItem(BuildContext context, String playstation, int index) {
-    // Membuat path untuk gambar berdasarkan index
     String imagePath = 'assets/ps_image$index.jpg';
 
     return Card(
@@ -59,8 +67,8 @@ class Dashboard extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Implement "cek" button logic for the specific PlayStation
                 print('Cek button pressed for $playstation');
+                navigateToDetailPage(context, index);
               },
               style: ElevatedButton.styleFrom(
                 primary: Colors.green,
@@ -70,6 +78,14 @@ class Dashboard extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void navigateToDetailPage(BuildContext context, int index) {
+    String dataForPS = allDataList[index].join('\n');
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => PSDetailPage(data: dataForPS)),
     );
   }
 }
