@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
 import 'package:provider/provider.dart';
+
 import 'api_manager.dart';
-import 'user_manager.dart';
-import 'user_list_page.dart';
-import 'register_page.dart';
-import 'login_page.dart';
 import 'dashboard_page.dart';
+import 'login_page.dart';
+import 'register_page.dart';
+import 'splash_screen.dart';
+import 'user_list_page.dart';
+import 'user_manager.dart';
 
 void main() {
   runApp(MyApp());
